@@ -5,7 +5,6 @@
  * npx hardhat run scripts/deploy.js --network localhost
  *
  */
-require("dotenv").config();
 const ethers = require("ethers");
 const provider = new ethers.providers.JsonRpcProvider('https://rpc.testnet.cloudwalk.io/');
 
@@ -22,7 +21,7 @@ const myWalletAddress = wallet.address;
 const myContractAddress = "0xC6d1eFd908ef6B69dA0749600F553923C465c812";
 const BRLC =
   require("./BRLC.json");
-const myContract = new ethers.Contract(myContractAddress, BRLC, wallet);
+export const myContract = new ethers.Contract(myContractAddress, BRLC, wallet);
 
 const contract1 = async () => {
   const contractOwner = await myContract.decimals();

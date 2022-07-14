@@ -2,7 +2,7 @@
 pragma solidity ^0.8.10;
 
 
-contract CTokenInterface{
+abstract contract CTokenInterface{
 
     function transfer(address dst, uint amount) virtual external returns (bool);
     function transferFrom(address src, address dst, uint amount) virtual external returns (bool);
@@ -30,7 +30,6 @@ contract CTokenInterface{
     function repayBorrow(uint repayAmount) virtual external returns (uint);
     function repayBorrowBehalf(address borrower, uint repayAmount) virtual external returns (uint);
     function liquidateBorrow(address borrower, uint repayAmount, CTokenInterface cTokenCollateral) virtual external returns (uint);
-    function sweepToken(EIP20NonStandardInterface token) virtual external;
 
 }
 
